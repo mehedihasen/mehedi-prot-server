@@ -32,7 +32,7 @@ app.get('/', function (req, res) {
   res.send('hello world')
 })
 
-router.post("/contact", (req, res) => {
+app.post("/contact", (req, res) => {
   const name = req.body.name;
   const email = req.body.email;
   const message = req.body.message; 
