@@ -16,7 +16,7 @@ const contactEmail = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user:`${process.env.EMAIL}`,
-    pass: `${process.env.PASS}`,
+    pass:`${process.env.PASS}`,
   },
 });
 
@@ -45,7 +45,7 @@ app.post("/contact", (req, res) => {
   contactEmail.sendMail(mail, (error) => {
     if (error) {
       console.log(error);
-      res.json({ error });
+      res.json({ mail });
     } else {
       res.json({ status: "Message Sent" });
     }
