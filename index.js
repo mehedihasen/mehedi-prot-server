@@ -45,10 +45,11 @@ router.post("/contact", (req, res) => {
   };
   contactEmail.sendMail(mail, (error) => {
     if (error) {
+      console.log(error);
       res.json({ status: "ERROR" });
     } else {
       res.json({ status: "Message Sent" });
     }
   });
 });
-app.listen(port, () => console.log("Server Running"));
+app.listen(process.env.PORT || 5000, () => console.log("Server Running"));
